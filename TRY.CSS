@@ -22,20 +22,19 @@ html {
   width: 50px;
   height: 50px;
 }
-
 nav {
-  background-color: black;
-  height: 40px;
   position: sticky;
-  top: 1px;
   z-index: 80;
-  box-shadow: 0 0 5px 0 rgb(203, 180, 224);
+  top: 1px;
 }
-
 ol {
   display: flex;
   flex-direction: row;
   list-style-type: none;
+  background-color: black;
+  box-shadow: 0 0 5px 0 rgb(203, 180, 224);
+  padding: 0px;
+  height: 40px;
 }
 
 ol li,
@@ -54,21 +53,12 @@ a {
 }
 
 a:hover {
-  background-color: rgb(35, 154, 190);
+  background-color: var(--fontcolor);
 }
 
 a:active {
   background: #265301;
   color: #cdfeaa;
-}
-
-li::after {
-  content: "";
-  position: absolute;
-  border-color: white transparent transparent transparent;
-  border-style: solid;
-  border-width: 8px;
-  margin-top: 5px;
 }
 
 main {
@@ -84,9 +74,7 @@ main {
 * {
   box-sizing: border-box;
 }
-.mySlides1,
-.mySlides2,
-.mySlides3 {
+.mySlides {
   display: none;
 }
 img {
@@ -201,4 +189,30 @@ p {
   color: cornsilk;
   font-size: 50px;
   height: 150px;
+}
+
+.pcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+figure img {
+  border-radius: 50%;
+}
+.photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px white solid;
+  margin-bottom: 20px;
+  border-top-right-radius: 80px 80px;
+  border-bottom-left-radius: 80px 80px;
+  border-top-left-radius: 10px 10px;
+  border-bottom-right-radius: 10px 10px;
+}
+figcaption {
+  width: 200px;
+  height: 80px;
+  overflow: hidden;
 }
