@@ -9,23 +9,39 @@ html {
   position: relative;
   color: rgb(255 255 255/1);
 }
-.header {
-  display: flex;
-  justify-items: left;
-  align-items: center;
-  font-family: "Kaushan Script", cursive;
-  color: var(--fontcolor);
-  font-weight: bold;
+* {
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  grid-template-columns: 50px repeat(9, 1fr);
+  grid-template-rows: 50px 40px auto 50px;
+  grid-template-areas:
+    "logo name . . . . . . . . "
+    "nav nav nav nav nav nav nav nav nav nav"
+    "cont cont cont cont cont cont cont cont cont cont"
+    "footer footer footer footer footer footer footer footer footer footer ";
 }
 #logo {
-  display: flex;
+  grid-area: logo;
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
+h1 {
+  grid-area: name;
+  font-family: "Kaushan Script", cursive;
+  color: var(--fontcolor);
+  margin: 0;
+}
+
 nav {
+  grid-area: nav;
   position: sticky;
-  z-index: 80;
+  z-index: 1080;
   top: 1px;
+  height: 40px;
+  margin-top: 10px;
 }
 ol {
   display: flex;
@@ -35,12 +51,16 @@ ol {
   box-shadow: 0 0 5px 0 rgb(203, 180, 224);
   padding: 0px;
   height: 40px;
+  margin: 0px;
 }
 
 ol li,
 ol form {
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: auto;
+  flex-wrap: nowrap;
 }
 
 a {
@@ -62,18 +82,14 @@ a:active {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  grid-area: cont;
 }
+
 .categorie {
   color: var(--fontcolor);
-  font-weight: bold;
+  margin-top: 50px;
 }
-* {
-  box-sizing: border-box;
-}
+
 .mySlides {
   display: none;
 }
@@ -83,7 +99,7 @@ img {
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  width: 770px;
   position: relative;
   margin: auto;
 }
@@ -182,20 +198,13 @@ img {
 p {
   position: relative;
 }
-
-.footer {
-  display: flex;
-  background-color: black;
-  color: cornsilk;
-  font-size: 50px;
-  height: 150px;
-}
-
 .pcontainer {
-  display: flex;
-  flex-direction: row;
+  grid-area: cont;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  grid-template-rows: repeat(5, auto);
+  gap: 20px 20px;
   justify-content: space-around;
-  flex-wrap: wrap;
 }
 figure img {
   border-radius: 50%;
@@ -215,4 +224,12 @@ figcaption {
   width: 200px;
   height: 80px;
   overflow: hidden;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: black;
+  color: cornsilk;
+  font-size: 50px;
+  height: 150px;
 }
